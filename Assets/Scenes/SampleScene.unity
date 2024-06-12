@@ -3046,10 +3046,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa524f57af7c80b40876ba603160c0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameInput: {fileID: 1042751569}
-  NumberInput: {fileID: 684890498}
-  MonthDropdown: {fileID: 1793868061}
-  TakeDataBtn: {fileID: 883761504}
+  _nameInput: {fileID: 1042751569}
+  _numberInput: {fileID: 684890498}
+  _monthDropdown: {fileID: 1793868061}
+  _takeDataBtn: {fileID: 883761504}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

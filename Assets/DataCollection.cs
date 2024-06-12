@@ -6,55 +6,101 @@ using System.IO;
 using TMPro;
 
 public class DataCollection : MonoBehaviour
-   
 {
-    // These are currently broken, need to connect
-    [SerializeField] private TMP_InputField NameInput;
-    [SerializeField] private TMP_InputField NumberInput;
-    [SerializeField] private TMP_Dropdown MonthDropdown;
-    [SerializeField] private Button TakeDataBtn;
-    // Start is called before the first frame update
-    void Start()
-    {
-        TakeDataBtn.onClick.AddListener(SaveData);
-    }
+    [SerializeField] private TMP_InputField _nameInput;
+    [SerializeField] private TMP_InputField _numberInput;
+    [SerializeField] private TMP_Dropdown _monthDropdown;
+    [SerializeField] private Button _takeDataBtn;
+
+    private string filePath;
+    private UserDataList userDataList = new UserDataList();
+
+    // This class is used to store user data
+    [System.Serializable]
     private class UserData
     {
         public string Name;
         public int Number;
         public string Month;
     }
-    private void SaveData()
+
+    // This class is used to store a list of user data
+
+    private class UserDataList
     {
-        // should log entry from fields into JSON file
-        UserData userData = new UserData();
-        {
-
-            userData.Name = NameInput.text;
-
-            if (int.TryParse(NumberInput.text, out int number))
-            {
-                userData.Number = number;
-            }
-            else
-            {
-                Debug.LogError("Invalid Number Input");
-            }
-
-
-            int selectedIndex = MonthDropdown.value;
-            userData.Month = MonthDropdown.options[selectedIndex].text;
-            Debug.Log($"Name: {userData.Name}, Number: {userData.Number}, Month: {userData.Month}");
-        }
-
-        //string json = JsonUtility.ToJson(userData);
-
-        //File.WriteAllText(Application.persistentDataPath + "/UserData.json", json);
-
-        //Debug.Log("Data saved to " + Application.persistentDataPath + "/UserData.json");
+        public List<UserData> Users = new List<UserData>();
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        filePath = Path.Combine(Application.streamingAssetsPath, "UserDataList.json");
+        Debug.Log("File Path: " + filePath);
+        _takeDataBtn.onClick.AddListener(SaveData);
+        LoadUserData();
+    }
+
+    private void SaveData()
+    {
+        // Create a new UserData instance
+        UserData userData = new UserData
+        {
+            Name = _nameInput.text
+        };
+
+        // Parse the number input
+        if (int.TryParse(_numberInput.text, out int number))
+        {
+            userData.Number = number;
+        }
+        else
+        {
+            Debug.LogError("Invalid Number Input");
+            return;
+        }
+
+        // Get the selected month from the dropdown
+        int selectedIndex = _monthDropdown.value;
+        userData.Month = _monthDropdown.options[selectedIndex].text;
+
+        // Add the new user data to the list
+        userDataList.Users.Add(userData);
+
+        // Save the updated list to the JSON file
+        SaveUserData();
+
+        // Log the data
+        Debug.Log($"Name: {userData.Name}, Number: {userData.Number}, Month: {userData.Month}");
+    }
+
+    private void SaveUserData()
+    {
+        if (!Directory.Exists(Application.streamingAssetsPath))
+        {
+            Directory.CreateDirectory(Application.streamingAssetsPath);
+        }
+        string json = JsonUtility.ToJson(userDataList, true);
+        Debug.Log("Saving Data: " + json);
+        File.WriteAllText(filePath, json);
+        Debug.Log(filePath);
+        Debug.Log("Data saved to file");
+    }
+
+    private void LoadUserData()
+    {
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            userDataList = JsonUtility.FromJson<UserDataList>(json);
+            Debug.Log("Data loaded from file: " + json);
+        }
+        else
+        {
+            Debug.Log("File does not exist, creating new file.");
+        }
+    }
+}
 
     // later functions should interact with button to show data currently logged in JSON
     // Search button near the top should allow for user to search by name for number and month data
-}
+
