@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
+using Helios.Relay;
 
 public class DataCollection : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class DataCollection : MonoBehaviour
 
     private string filePath;
     private UserDataList userDataList = new UserDataList();
+    Relay relay = new Relay("https://localhost:9696/", "9I7kkFXNQlgFZvGN");
+    RExperience rExperience = new RExperience("Example", "922c09f6-bdd2-4825-95c0-280c0328eba4");
+    RGuest rGuest = new RGuest();
+ 
+
 
     // This class is used to store user data
     [System.Serializable]
@@ -35,6 +41,7 @@ public class DataCollection : MonoBehaviour
     void Start()
     {
         filePath = Path.Combine(Application.streamingAssetsPath, "UserDataList.json");
+        //    RFile rFile = new RFile { name = "Example.png", path = "StreamingAssets/Examples/ExampleFileName.png" };
         Debug.Log("File Path: " + filePath);
         _takeDataBtn.onClick.AddListener(SaveData);
         LoadUserData();

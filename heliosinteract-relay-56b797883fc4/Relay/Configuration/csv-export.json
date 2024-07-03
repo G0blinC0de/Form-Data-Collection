@@ -1,0 +1,12 @@
+{
+  "CSV-Export": {
+    "Path": "",
+    "Fields": [
+      {
+        "name": "Example",
+        "source": "Experience",
+        "key": "example"
+      }
+    ]
+  }
+}

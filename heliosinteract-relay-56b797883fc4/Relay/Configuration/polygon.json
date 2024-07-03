@@ -1,0 +1,8 @@
+{
+  "Polygon": {
+    "BaseUrl": "https://it5baixu7j.execute-api.us-west-2.amazonaws.com/Prod/api/",
+    "User": "josh.guerrero",
+    "Password": "Vdy3CqFzHltXZWeqik78CK2ozu03VC2fmVN57DnFTB863O7HbdJPFH1Bmll9wGBA",
+    "MaxGasPrice": "1000.0"
+  }
+}

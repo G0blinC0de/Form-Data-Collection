@@ -1,0 +1,6 @@
+{
+  "Dispatch": {
+    "Url": "https://api.staging.dispatch.social/",
+    "SignedUrlTimeout": 300
+  }
+}

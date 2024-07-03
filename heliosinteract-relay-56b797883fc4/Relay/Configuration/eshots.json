@@ -1,0 +1,14 @@
+{
+  "Eshots": {
+    "ClientLicenseId": "50077",
+    "Username": "devin.hunter@heliosinteractive.com",
+    "Password": "IFOJgBJ8rs9WJmHU4RmrCq96wI3zslBjp6NeGyRyV8mCX7vjjQWFIoaHLj9CMRBU",
+    "DataTransform": {
+      "eventTokenId": "Guest.metadata.eshotsId",
+      "rElatId": "Experience.metadata.rElatId",
+      "answers": {
+        "score": "Experience.metadata.score"
+      }
+    }
+  }
+}

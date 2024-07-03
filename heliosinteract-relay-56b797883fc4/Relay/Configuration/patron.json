@@ -1,0 +1,11 @@
+{
+  "Patron": {
+    "DeveloperEmail": "josh.guerrero@heliosinteractive.com",
+    "DeveloperPassword": "GtfPArQ17xYsqrD+Tk3VXLM1sHMvPW/RfRu17+kWJrE=",
+    "BaseUrl": "https://api.events-staging.thuzi.com/",
+    "BrandId": "62b5c25eb774fb49e80a6fe2",
+    "EventId": "62b5c9b0a71b029a04666500",
+    "PhotoStreamId": "62b5c9c05f6bcc22b47dd95f",
+    "VideoStreamId": "62b5c9d4a71b029a04666501"
+  }
+}

@@ -1,0 +1,7 @@
+﻿{
+  "Relay": {
+    "DatabaseConnectionString": "Pp7GbBRwbo6V/TvFW9gqjJU2qgpdCxN5ntDXUhI4A6gumHUHtD+OtBbbO33/soEYRZ/8HSjqsnBfUtPIDjPvMj25eBTyURw2QPm0oPq4cn0=",
+    "EnableDummyRelay": true,
+    "EnableReachRelay": true
+  }
+}

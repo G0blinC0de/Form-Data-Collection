@@ -1,0 +1,16 @@
+{
+  "Google-UA": {
+    "PropertyId": "UA-218378540-1",
+    "Events": [
+      {
+        "category": { "value": "Example" },
+        "action": { "value": "select" },
+        "label": {
+          "source": "Experience",
+          "key": "example"
+        },
+        "value": { "ignore": true }
+      }
+    ]
+  }
+}
