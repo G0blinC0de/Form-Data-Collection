@@ -1,6 +1,0 @@
-[submodule "Assets/_Vendor/Helios/Relay"]
-	path = Assets/_Vendor/Helios/Relay
-	url = git@bitbucket.org:heliosinteract/relay-unity-plugin.git
-[submodule "Assets/_Vendor/Helios/JSONDOTNET"]
-	path = Assets/_Vendor/Helios/JSONDOTNET
-	url = git@bitbucket.org:heliosinteract/json-.net.git
