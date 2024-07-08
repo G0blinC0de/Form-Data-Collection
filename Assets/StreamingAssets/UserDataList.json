@@ -9,6 +9,11 @@
             "Name": "Red",
             "Number": 42,
             "Month": "April"
+        },
+        {
+            "Name": "Bob",
+            "Number": 23,
+            "Month": "July"
         }
     ]
 }

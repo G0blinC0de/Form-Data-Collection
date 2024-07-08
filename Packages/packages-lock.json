@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "com.gencitylabs.logging": {
+      "version": "ssh://git@github.com/gencitylabs/com.gencitylabs.logging.git#1.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f20a46f26672180ad460b50fcdf13ab436f2d559"
+    },
+    "com.gencitylabs.relay": {
+      "version": "ssh://git@github.com/gencitylabs/com.gencitylabs.relay.git#6.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.gencitylabs.logging": "1.0.0"
+      },
+      "hash": "bc0ffbff4bcf447c78b4310dddec375bef46e325"
+    },
     "com.unity.collab-proxy": {
       "version": "2.3.1",
       "depth": 0,

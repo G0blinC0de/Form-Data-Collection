@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.gencitylabs.logging": "ssh://git@github.com/gencitylabs/com.gencitylabs.logging.git#1.0.0",
+    "com.gencitylabs.relay": "ssh://git@github.com/gencitylabs/com.gencitylabs.relay.git#6.0.0",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
