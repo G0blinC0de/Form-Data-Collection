@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
-// using Helios.Relay;
+using GenCityLabs.Relay;
+using GenCityLabs.Relay.Unity;
+using static System.Net.WebRequestMethods;
+
 
 public class DataCollection : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class DataCollection : MonoBehaviour
 
     private string filePath;
     private UserDataList userDataList = new UserDataList();
+    RelayClient relay = new RelayClient();
     //Relay relay = new Relay("https://localhost:9696/", "9I7kkFXNQlgFZvGN");
     //RExperience rExperience = new RExperience("Example", "922c09f6-bdd2-4825-95c0-280c0328eba4");
     //RGuest rGuest = new RGuest();
@@ -40,6 +44,7 @@ public class DataCollection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        relay.BaseUrl = "https://localhost:9696/";
         filePath = Path.Combine(Application.streamingAssetsPath, "UserDataList.json");
     
         Debug.Log("File Path: " + filePath);
@@ -88,16 +93,16 @@ public class DataCollection : MonoBehaviour
         }
         string json = JsonUtility.ToJson(userDataList, true);
         Debug.Log("Saving Data: " + json);
-        File.WriteAllText(filePath, json);
+        System.IO.File.WriteAllText(filePath, json);
         Debug.Log(filePath);
         Debug.Log("Data saved to file");
     }
 
     private void LoadUserData()
     {
-        if (File.Exists(filePath))
+        if (System.IO.File.Exists(filePath))
         {
-            string json = File.ReadAllText(filePath);
+            string json = System.IO.File.ReadAllText(filePath);
             userDataList = JsonUtility.FromJson<UserDataList>(json);
             Debug.Log("Data loaded from file: " + json);
         }
